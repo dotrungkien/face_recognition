@@ -1,4 +1,5 @@
 data/
+MNIST_data
 Face*
 # Python bytecode:
 *.py[co]

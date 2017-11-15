@@ -9,7 +9,7 @@ RAW_PATH = './Face'
 DATA_PATH = './data'
 TRAIN = 'Train'
 TEST = 'Test'
-IMAGE_SIZE = 32, 32
+IMAGE_SIZE = 28, 28
 
 
 def move_and_rename(path_type):
@@ -35,7 +35,7 @@ def move_and_rename(path_type):
             images_path = join(people_path, images_folder)
             images = [
                 join(images_path, img) for img in listdir(images_path)
-                if isfile(join(images_path, img)) and 'jpg' in img
+                if img.endswith('.jpg')
             ]
             people_images.extend(images)
         for i, img in enumerate(people_images):
@@ -54,7 +54,7 @@ def resize(path_type):
     os.mkdir(out_path)
     images_name = [
         image_name for image_name in listdir(images_path)
-        if isfile(join(images_path, image_name)) and 'jpg' in image_name
+        if image_name.endswith('.jpg')
     ]
     for image_name in images_name:
         try:
